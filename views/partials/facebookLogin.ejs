@@ -3,6 +3,7 @@
     if (response.status === 'connected') {
       var accessToken = response.authResponse.accessToken;
       var userID = response.authResponse.userID;
+      console.log(11111111111);
       $.post("https://vast-sands-74764.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : 'facebook' } , function (data) {
         if(data==='done')
         {
@@ -10,9 +11,9 @@
         }
       });
     } else if (response.status === 'not_authorized') {
-
+      console.log(222222222222);
     } else {
-
+      console.log(333333333333);
     }
   }
 

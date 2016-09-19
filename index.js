@@ -52,7 +52,6 @@ app.get('/location', function (request, response) {
     response.render('pages/location');
   }
   else {
-    console.log(11111111);
     response.redirect('/login');
   }
 });
