@@ -26,7 +26,7 @@
       if (statusObj.status === 'connected') {
         var accessToken = Kakao.Auth.getAccessToken();
         var userID = statusObj.user.id;
-        $.post("https://secret-peak-54499.herokuapp.com", { accessToken : accessToken, userID : userID, apihost : "kakao" }, function (data) {
+        $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : "kakao" }, function (data) {
           if(data==='done')
           {
             window.location.href="/admin";
