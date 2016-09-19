@@ -43,17 +43,10 @@ app.get('/register', function (request, response) {
     response.redirect('/location');
   }
   else {
-    response.redirect('/login');
+    response.render('pages/login');
   }
 });
 
-app.get('/location', function (request, response) {
-  if(request.session.key) {
-	response.render('pages/location');
-  } else {
-	response.redirect('/');
-  }
-});
 app.get('/admin',function (request,response){
   if(request.session.key) {
     console.log(request.session.key);
@@ -79,7 +72,7 @@ app.post('/login',function (req,res){
       }
       if (body.id === req.body.userID) {
         req.session.key = req.body;
-        res.redirect('/');
+        res.end('done');
       }
     });
   }
@@ -101,12 +94,9 @@ app.post('/login',function (req,res){
       }
       if (body.id === Number(req.body.userID)) {
         req.session.key = req.body;
-        res.redirect('/');
+        res.end('done');
       }
     });
-  }
-  else {
-	  return
   }
 });
 
@@ -132,4 +122,3 @@ app.listen(app.get('port'), function() {
 
 
 /*------------------- functions ---------------------*/
-
