@@ -6,14 +6,13 @@
       $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : 'facebook' } , function (data) {
         if(data==='done')
         {
-          console.log(11111111);
-          //window.location.href="/admin";
+          window.location.href="/admin";
         }
       });
     } else if (response.status === 'not_authorized') {
-      console.log(222222222222);
+
     } else {
-      console.log(3333333333);
+      
     }
   }
 

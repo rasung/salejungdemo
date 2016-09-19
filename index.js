@@ -43,7 +43,7 @@ app.get('/register', function (request, response) {
     response.redirect('/location');
   }
   else {
-    response.render('pages/login');
+    response.redirect('/login');
   }
 });
 
