@@ -47,6 +47,15 @@ app.get('/register', function (request, response) {
   }
 });
 
+app.get('/location', function (request, response) {
+  if(request.session.key) {
+    response.render('pages/location');
+  }
+  else {
+    response.redirect('/login');
+  }
+});
+
 app.get('/admin',function (request,response){
   if(request.session.key) {
     console.log(request.session.key);
