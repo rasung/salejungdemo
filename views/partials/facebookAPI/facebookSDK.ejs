@@ -43,12 +43,12 @@
         var accessToken = response.authResponse.accessToken;
         var userID = response.authResponse.userID;
         FB.api('/me', function(response) {
-          changeNavbar(response.name);
+          changeNavbar();
         });
       } else if (response.status === 'not_authorized') {
 
       } else {
-        
+
       }
     });
 
