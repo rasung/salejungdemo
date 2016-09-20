@@ -20,9 +20,10 @@
 </nav>
 
 <script>
-  function changeNavbar(id) {
-    $("#username").text(id);
-    $("#navbar").append('<li><a href="/admin"><span class="glyphicon glyphicon-user"></span>admin</a></li>');
+  function changeNavbar(name) {
+    $("#username").detach();
+    $("#navbar").append('<li><a href="/admin"><span class="glyphicon glyphicon-user"></span>' + name + '</a></li>');
+    $("#navbar").append('<li><a href="/admin"><span class="glyphicon glyphicon-user"></span>내 물건</a></li>');
     $("#navbar").append('<li><a href="/logout" onclick="FB.logout();"><span class="glyphicon glyphicon-user"></span>logout</a></li>');
   }
 
