@@ -1,3 +1,5 @@
+<% include ../partials/facebookAPI/facebookSDK.ejs %>
+<% include ../partials/kakaoAPI/kakaoSDK.ejs %>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
@@ -6,13 +8,24 @@
       </li>
     </ul>
     <p class="navbar-text">세일 중인 모든 상품을 주변 사람들에게 알릴 수 있습니다!</p>
-    <ul class="nav navbar-nav navbar-right">
+    <ul id="navbar" class="nav navbar-nav navbar-right">
       <li>
         <a href="https://secret-peak-54499.herokuapp.com/register"><span class="glyphicon glyphicon-plus-sign"></span> 물건 등록 </a>
       </li>
-      <li>
-        <a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a>
+      <li id="username">
+        <a href="/login"><span class="glyphicon glyphicon-user"></span>Login</a>
       </li>
     </ul>
   </div>
 </nav>
+
+<script>
+  function changeNavbar(id) {
+    $("#username").text(id);
+    $("#navbar").append('<li><a href="/admin"><span class="glyphicon glyphicon-user"></span>admin</a></li>');
+    $("#navbar").append('<li><a href="/logout" onclick="FB.logout();"><span class="glyphicon glyphicon-user"></span>logout</a></li>');
+  }
+
+  getFBUserName();
+  getKkUserName();
+</script>

@@ -1,9 +1,4 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<div align="center">
-  <a id="custom-login-btn" href="javascript:loginWithKakao()" align="center">
-    <img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="200"/>
-  </a>
-</div>
 <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -38,7 +33,32 @@
     });
   }
 
-  checkLoginStateKakao();
-
+  function getKkUserName() {
+    Kakao.Auth.getStatus(function(statusObj) {
+      if (statusObj.status === 'connected') {
+        var accessToken = Kakao.Auth.getAccessToken();
+        var userID = statusObj.user.id;
+        $.ajax({
+          type : 'get',
+          url : 'https://kapi.kakao.com/v1/user/me',
+          dataType : 'json',
+          beforeSend : function(xhr){
+            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+          },
+          error: function (xhr, status, error) {
+              console.log(error);
+          },
+          success : function (data) {
+              console.log(data);
+              console.log(data.id);
+              changeNavbar(data.id);
+          }
+        });
+      } else {
+        console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
+      }
+    });
+  }
 
 </script>
