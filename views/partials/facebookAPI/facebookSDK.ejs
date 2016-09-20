@@ -28,31 +28,30 @@
   // navbars in all pages change contents
   // when login = navbar has username text, logout and admin
   // when logout = navbar has only login text
-  function getFBUserName() {
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        var accessToken = response.authResponse.accessToken;
-        var userID = response.authResponse.userID;
-        $.ajax({
-          type : 'get',
-          url : 'https://graph.facebook.com/' + userID + '?access_token=' + accessToken,
-          dataType : 'json',
-          error: function (xhr, status, error) {
-            console.log(error);
-          },
-          success : function (data) {
-            console.log(data);
-            console.log(data.id);
-            changeNavbar(data.id);
-          }
-        });
-      } else if (response.status === 'not_authorized') {
-        console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
-      } else {
-        console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
-      }
-    });
-  }
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      var accessToken = response.authResponse.accessToken;
+      var userID = response.authResponse.userID;
+      $.ajax({
+        type : 'get',
+        url : 'https://graph.facebook.com/' + userID + '?access_token=' + accessToken,
+        dataType : 'json',
+        error: function (xhr, status, error) {
+          console.log(error);
+        },
+        success : function (data) {
+          console.log(data);
+          console.log(data.id);
+          changeNavbar(data.id);
+        }
+      });
+    } else if (response.status === 'not_authorized') {
+      console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
+    } else {
+      console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
+    }
+  });
+
 
   window.fbAsyncInit = function() {
     FB.init({
@@ -61,10 +60,6 @@
                           // the session
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.5' // use graph api version 2.5
-    });
-
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
     });
 
     FB.Event.subscribe('auth.logout', function(response) {
