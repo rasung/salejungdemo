@@ -43,9 +43,8 @@
         var accessToken = response.authResponse.accessToken;
         var userID = response.authResponse.userID;
         FB.api('/me', function(response) {
-          console.log('Successful login for: ' + response.name);
+          changeNavbar(response.name);
         });
-        
       } else if (response.status === 'not_authorized') {
         console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
       } else {
