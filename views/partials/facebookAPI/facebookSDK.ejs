@@ -1,4 +1,30 @@
 <script>
+  function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+      var accessToken = response.authResponse.accessToken;
+      var userID = response.authResponse.userID;
+      $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : 'facebook' } , function (data) {
+        if(data==='done')
+        {
+          window.location.href="/admin";
+        }
+      });
+    } else if (response.status === 'not_authorized') {
+
+    } else {
+
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
   // navbars in all pages change contents
   // when login = navbar has username text, logout and admin
   // when logout = navbar has only login text
@@ -25,32 +51,6 @@
       } else {
         console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
       }
-    });
-  }
-
-  function statusChangeCallback(response) {
-    if (response.status === 'connected') {
-      var accessToken = response.authResponse.accessToken;
-      var userID = response.authResponse.userID;
-      $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : 'facebook' } , function (data) {
-        if(data==='done')
-        {
-          window.location.href="/admin";
-        }
-      });
-    } else if (response.status === 'not_authorized') {
-
-    } else {
-
-    }
-  }
-
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
     });
   }
 
