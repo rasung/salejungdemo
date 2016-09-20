@@ -1,3 +1,5 @@
+<% include ../partials/facebookAPI/facebookSDK.ejs %>
+<% include ../partials/kakaoAPI/kakaoSDK.ejs %>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
@@ -23,7 +25,7 @@
     $("#navbar").append('<li><a href="/admin"><span class="glyphicon glyphicon-user"></span>admin</a></li>');
     $("#navbar").append('<li><a href="/logout" onclick="FB.logout();"><span class="glyphicon glyphicon-user"></span>logout</a></li>');
   }
-  console.log(11111111111);
+  console.log(111);
   getFBUserName();
   getKkUserName();
 </script>
