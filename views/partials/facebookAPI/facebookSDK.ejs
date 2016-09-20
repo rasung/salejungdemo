@@ -42,19 +42,10 @@
       if (response.status === 'connected') {
         var accessToken = response.authResponse.accessToken;
         var userID = response.authResponse.userID;
-        $.ajax({
-          type : 'get',
-          url : 'https://graph.facebook.com/' + userID + '?access_token=' + accessToken,
-          dataType : 'json',
-          error: function (xhr, status, error) {
-            console.log(error);
-          },
-          success : function (data) {
-            console.log(data);
-            console.log(data.id);
-            changeNavbar(data.id);
-          }
+        FB.api('/me', function(response) {
+          console.log('Successful login for: ' + response.name);
         });
+        
       } else if (response.status === 'not_authorized') {
         console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
       } else {
