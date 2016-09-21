@@ -69,7 +69,6 @@ app.get('/admin',function (request,response){
 
 app.post('/login',function (req,res){
   //페이스북일때
-  console.log(222222222);
   if(req.body.apihost === "facebook") {
     request({
       method: 'get',
@@ -83,7 +82,6 @@ app.post('/login',function (req,res){
       if (body.id === req.body.userID) {
         req.session.key = req.body;
         res.end('done');
-        console.log(111111111111);
       }
     });
   }
