@@ -39,11 +39,11 @@
     // when login = navbar has username text, logout and admin
     // when logout = navbar has only login text
     FB.getLoginStatus(function(response) {
-      FB.api('/me', function(response) {
-        console.log(response);
-      });
       if (response.status === 'connected') {
         changeNavbar('facebook');
+        FB.api('/me', function(response) {
+          console.log(response);
+        });
       } else if (response.status === 'not_authorized') {
 
       } else {
