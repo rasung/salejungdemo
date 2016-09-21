@@ -50,6 +50,10 @@
       }
     });
 
+    FB.Event.subscribe('auth.login', function(response) {
+      document.location.reload();
+    });
+    
     FB.Event.subscribe('auth.logout', function(response) {
       document.location.reload();
     });
