@@ -42,10 +42,11 @@
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         changeNavbar('facebook');
+        console.log(111111111);
       } else if (response.status === 'not_authorized') {
 
       } else {
-        
+
       }
     });
 
