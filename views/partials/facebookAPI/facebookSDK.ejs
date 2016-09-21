@@ -3,16 +3,18 @@
     if (response.status === 'connected') {
       var accessToken = response.authResponse.accessToken;
       var userID = response.authResponse.userID;
+      console.log(1111111);
       $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : 'facebook' } , function (data) {
         if(data==='done')
         {
+          console.log(222222);
           window.location.href="/admin";
         }
       });
     } else if (response.status === 'not_authorized') {
 
     } else {
-
+      console.log(333333);
     }
   }
 
