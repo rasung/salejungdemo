@@ -51,6 +51,7 @@
     });
 
     FB.Event.subscribe('auth.login', function(response) {
+      checkLoginState();
       //window.location.href="/admin";
     });
 
