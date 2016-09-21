@@ -49,7 +49,7 @@
     });
 
     FB.Event.subscribe('auth.login', function(response) {
-      document.location.reload();
+      window.location.href="/admin";
     });
 
     FB.Event.subscribe('auth.logout', function(response) {
