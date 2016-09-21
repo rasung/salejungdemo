@@ -82,6 +82,7 @@ app.post('/login',function (req,res){
       if (body.id === req.body.userID) {
         req.session.key = req.body;
         res.end('done');
+        console.log(111111111111);
       }
     });
   }
