@@ -3,6 +3,9 @@
     if (response.status === 'connected') {
       var accessToken = response.authResponse.accessToken;
       var userID = response.authResponse.userID;
+      FB.api('/me', function(response) {
+        console.log(response);
+      });
       $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : 'facebook' } , function (data) {
         if(data==='done')
         {
@@ -46,10 +49,6 @@
       } else {
 
       }
-    });
-
-    FB.api('/me', function(response) {
-      console.log(response);
     });
 
     FB.Event.subscribe('auth.login', function(response) {
