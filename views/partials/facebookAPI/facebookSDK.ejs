@@ -40,11 +40,7 @@
     // when logout = navbar has only login text
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
-        var accessToken = response.authResponse.accessToken;
-        var userID = response.authResponse.userID;
-        FB.api('/me', function(response) {
-          changeNavbar();
-        });
+        changeNavbar();
       } else if (response.status === 'not_authorized') {
 
       } else {

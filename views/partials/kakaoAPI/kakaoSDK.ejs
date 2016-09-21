@@ -33,32 +33,12 @@
     });
   }
 
-  function getKkUserName() {
-    Kakao.Auth.getStatus(function(statusObj) {
-      if (statusObj.status === 'connected') {
-        var accessToken = Kakao.Auth.getAccessToken();
-        var userID = statusObj.user.id;
-        $.ajax({
-          type : 'get',
-          url : 'https://kapi.kakao.com/v1/user/me',
-          dataType : 'json',
-          beforeSend : function(xhr){
-            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=utf-8");
-          },
-          error: function (xhr, status, error) {
-              console.log(error);
-          },
-          success : function (data) {
-              console.log(data);
-              console.log(data.id);
-              changeNavbar(data.id);
-          }
-        });
-      } else {
-        console.log('eeerrrrrrrrrooooooorrrrrrrrrrrrr!!!!!!!!!!!!!!!!');
-      }
-    });
-  }
+  Kakao.Auth.getStatus(function(statusObj) {
+    if (statusObj.status === 'connected') {
+      changeNavbar();
+    } else {
+
+    }
+  });
 
 </script>
