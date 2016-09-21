@@ -30,12 +30,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (request, response) {
-  if(request.session.key) {
-    response.redirect('/admin');
-  }
-  else {
-    response.render('pages/index');
-  }
+  response.render('pages/index');
 });
 
 app.get('/register', function (request, response) {
