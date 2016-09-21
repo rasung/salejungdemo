@@ -77,7 +77,6 @@ app.post('/login',function (req,res){
       url: 'https://graph.facebook.com/' + req.body.userID + '?access_token=' + req.body.accessToken,
     }, function (error, response, body) {
       if (error) {
-        console.log(3333333333);
         console.log('Error :', error);
         return;
       }
@@ -90,7 +89,7 @@ app.post('/login',function (req,res){
   }
 
   //카카오일때
-  if(req.body.apihost === "kakao") {
+  else if(req.body.apihost === "kakao") {
     request({
       method: 'get',
       json: true, // Use,If you are sending JSON data

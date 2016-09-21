@@ -41,9 +41,6 @@
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         changeNavbar('facebook');
-        FB.api('/me', function(response) {
-          console.log(response);
-        });
       } else if (response.status === 'not_authorized') {
 
       } else {
