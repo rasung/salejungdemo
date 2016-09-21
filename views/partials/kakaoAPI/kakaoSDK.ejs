@@ -24,7 +24,7 @@
         $.post("https://secret-peak-54499.herokuapp.com/login", { accessToken : accessToken, userID : userID, apihost : "kakao" }, function (data) {
           if(data==='done')
           {
-            //window.location.href="/admin";
+            window.location.href="/admin";
           }
         });
       } else {
