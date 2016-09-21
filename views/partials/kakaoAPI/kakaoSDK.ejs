@@ -31,16 +31,14 @@
 
       }
     });
-    console.log(111111111);
   }
 
   Kakao.Auth.getStatus(function(statusObj) {
     if (statusObj.status === 'connected') {
-      changeNavbar();
+      changeNavbar('kakao');
     } else {
 
     }
-    console.log(22222222222);
   });
 
 </script>

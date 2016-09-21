@@ -40,7 +40,7 @@
     // when logout = navbar has only login text
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
-        changeNavbar();
+        changeNavbar('facebook');
       } else if (response.status === 'not_authorized') {
 
       } else {
