@@ -69,6 +69,7 @@ app.get('/admin',function (request,response){
 
 app.post('/login',function (req,res){
   //페이스북일때
+  console.log(222222222);
   if(req.body.apihost === "facebook") {
     request({
       method: 'get',
@@ -76,6 +77,7 @@ app.post('/login',function (req,res){
       url: 'https://graph.facebook.com/' + req.body.userID + '?access_token=' + req.body.accessToken,
     }, function (error, response, body) {
       if (error) {
+        console.log(3333333333);
         console.log('Error :', error);
         return;
       }
