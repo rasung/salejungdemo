@@ -36,11 +36,10 @@
   Kakao.Auth.getStatus(function(statusObj) {
     if (statusObj.status === 'connected') {
       changeNavbar('kakao');
-      console.log(333333333);
     } else if (statusObj.status === 'not_connected') {
-      console.log(1111111);
+    
     } else {
-      console.log(22222222);
+
     }
   });
 
