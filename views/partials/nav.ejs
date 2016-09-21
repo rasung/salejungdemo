@@ -23,11 +23,11 @@
   function changeNavbar() {
     $("#username").detach();
     $("#navbar").append('<li><a href="/admin"><span class="glyphicon glyphicon-user"></span>내 물건</a></li>');
-    $("#navbar").append('<li><a href="#" onclick="navbarLogout()"><span class="glyphicon glyphicon-user"></span>logout</a></li>');
+    $("#navbar").append('<li><a href="/" onclick="navbarLogout()"><span class="glyphicon glyphicon-user"></span>logout</a></li>');
   }
 
   function navbarLogout() {
-    
+
     Kakao.Auth.logout();
   }
 
