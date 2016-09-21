@@ -42,9 +42,10 @@
       if (response.status === 'connected') {
         changeNavbar('facebook');
       } else if (response.status === 'not_authorized') {
-
+        // When fb login and app logout, (i think) response.status should be 'not_authorized'.
+        // But actually response.status is not 'not_authorized'
       } else {
-
+        // but here. this could be changeable at any time in future if fb change 'FB.getLoginStatus' api. 
       }
     });
 
