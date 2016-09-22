@@ -9,6 +9,8 @@ var redisStore = require('connect-redis')(session);
 var client  = redis.createClient(process.env.REDIS_URL);
 var app = express();
 
+pg.defaults.ssl = true; // pg.defaults.ssl must be done before any connection to the database is created.
+
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1); // heroku has proxy. So, if cookie secure is true option, need this code.
 
