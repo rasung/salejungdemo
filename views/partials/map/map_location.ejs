@@ -17,11 +17,14 @@ function initMap() {
         position: {lat: -34.397, lng: 150.644}
       });
       marker.addListener('click', toggleBounce);
+      google.maps.event.addListener(marker, 'dragend', function(evt){
+        console.log(evt.latLng.lat());
+        console.log(evt.latLng.lng());
+      });
     }
-  });
-  google.maps.event.addListener(marker, 'dragend', function(evt){
-    console.log(evt.latLng.lat());
-    console.log(evt.latLng.lng());
+    else {
+      return;
+    }
   });
 }
 
