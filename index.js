@@ -16,8 +16,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
   client
     .query('INSERT INTO item(userID, shopname, title, pre_price, post_price, detail, latitude, longitude) VALUES ('fb_123', '세일중', '테스트입니다', 12345, 12345, '테스트', 23.2342334, -23.23523523);')
-    .on('row', function(row) {
-      console.log(JSON.stringify(row));
+    .on('end', function(result) {
+      console.log(JSON.stringify(result));
     });
 });
 app.set('port', (process.env.PORT || 5000));
