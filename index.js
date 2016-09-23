@@ -15,9 +15,14 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   console.log('Connected to postgres! Getting schemas...');
 
   client
-    .query('INSERT INTO item(userID, shopname, title, pre_price, post_price, detail, latitude, longitude) VALUES ('fb_123', '세일중', '테스트입니다', 12345, 12345, '테스트', 23.2342334, -23.23523523);')
-    .on('end', function(result) {
-      console.log(JSON.stringify(result));
+    .query('INSERT INTO item(userID, shopname, title, pre_price, post_price, detail, latitude, longitude) VALUES ('fb_123', '세일중', '테스트입니다', 12345, 12345, '테스트', 23.2342334, -23.23523523);'
+    , function (err, result) {
+      done() //this done callback signals the pg driver that the connection can be closed or returned to the connection pool
+
+      if (err) {
+        // pass the error to the express error handler
+        return next(err)
+      }
     });
 });
 app.set('port', (process.env.PORT || 5000));
