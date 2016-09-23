@@ -15,13 +15,13 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   console.log('Connected to postgres! Getting schemas...');
   console.log(2222);
   client.query("INSERT INTO item(userID, shopname, title, pre_price, post_price, detail, latitude, longitude) VALUES ('fb_123', '세일중', '테스트입니다', 12345, 12345, '테스트', 23.2342334, -23.23523523);"
-    , function (err, result) {
+  , function (err, result) {
       if (err) {
         // pass the error to the express error handler
         console.log(1111111);
       }
       console.log(result);
-    });
+  });
 });
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1); // heroku has proxy. So, if cookie secure is true option, need this code.
