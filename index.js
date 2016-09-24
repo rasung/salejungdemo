@@ -14,8 +14,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
   console.log(2222);
-  client.query("INSERT INTO salejung.item(shopname, title, pre_price, post_price, detail, latitude, longitude) VALUES ('ttt', 'ttt', 12345, 12345, '테스트', 23.2342334, -23.23523523);"
-  , function (err, result) {
+  client.query("DELETE FROM salejung.item *", function (err, result) {
       if (err) {
         // pass the error to the express error handler
         console.log(err);
